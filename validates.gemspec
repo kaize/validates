@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.version     = Validates::VERSION
   s.authors     = ["Mikhail Stolbov"]
   s.email       = ["mstolbov@gmail.com"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.homepage    = "https://github.com/kaize/validates"
+  s.summary     = "Collection of simple validators for Rails 3"
+  s.description = "Email, Slug, Uri validators for Rails 3"
 
   s.rubyforge_project = "validates"
 
@@ -20,5 +20,5 @@ Gem::Specification.new do |s|
 
   # specify any dependencies here; for example:
   # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
+  s.add_runtime_dependency "activemodel", [">= 3.0.0"]
 end
