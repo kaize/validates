@@ -1,5 +1,5 @@
 require "validates/version"
+require "validates/email_valodator"
+require "validates/slug_validator"
+require "validates/url_validator"
 
-module Validates
-  # Your code goes here...
-end
