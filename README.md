@@ -13,12 +13,12 @@ Add this to your `Gemfile`:
 ## Usage
 
     model User < ActiveRecord::Base
-      validate :email, :presence => true, :email => true
-      validate :site, :presence => true, :url => true, :allow_nil => true
+      validates :email, :email => true
+      validates :site, :url => true, :allow_blank => true
     end
 
     model Page < ActiveRecord::Base
-      validate :slug, :presence => true, :slug => true
+      validates :slug, :slug => true
     end
 
 
