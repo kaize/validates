@@ -4,7 +4,7 @@ class InnValidator < ActiveModel::EachValidator
     p10 = [2, 4, 10, 3, 5, 9, 4, 6, 8]
     p11 = [7, 2, 4, 10, 3, 5, 9, 4, 6, 8]
     p12 = [3, 7, 2, 4, 10, 3, 5, 9, 4, 6, 8]
-
+    inn ||= []
     if inn.length == 10
       n10 = calc(p10, inn)
       result = (n10 == inn[9].to_i)
