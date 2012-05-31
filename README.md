@@ -28,7 +28,7 @@ Email, Slug, Url, Money
 
 ## Relise notes
 
-0.0.2 - Fixed email validator. If email not presence, should be validate anyway.
+0.0.3 - Added Money validator
 
 ## Similar
 
