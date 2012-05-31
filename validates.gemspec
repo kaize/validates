@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = ["mstolbov@gmail.com"]
   s.homepage    = "https://github.com/kaize/validates"
   s.summary     = "Collection of simple validators for Rails 3"
-  s.description = "Email, Slug, Url validators for Rails 3"
+  s.description = "Email, Slug, Url, Money validators for Rails 3"
 
   s.rubyforge_project = "validates"
 

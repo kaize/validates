@@ -2,7 +2,7 @@
 
 ## Summary
 
-Email, Slug, Url simple format validators for Rails 3
+Simple format validators for Rails 3
 
 ## Installing
 
@@ -21,6 +21,10 @@ Add this to your `Gemfile`:
       validates :slug, :slug => true
     end
 
+
+## Availables validators
+
+Email, Slug, Url, Money
 
 ## Relise notes
 
