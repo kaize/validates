@@ -1,6 +1,8 @@
 class EmailValidator < ActiveModel::EachValidator
+  include EmailRegexp
+
   def validate_each(record, attribute, value)
-    unless value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+    unless regexp_compare(value)
       record.errors.add(attribute, :email, options.merge(:value => value))
     end
   end
