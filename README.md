@@ -31,7 +31,7 @@ Email, Slug, Url, Money
 
 0.0.3 - Added Money validator
 
-0.0.3 - Add inn  validator. 
+0.0.4 - Add inn  validator. 
 
 ## Similar
 
