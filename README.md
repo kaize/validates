@@ -15,6 +15,7 @@ Add this to your `Gemfile`:
     model User < ActiveRecord::Base
       validates :email, :email => true
       validates :site, :url => true, :allow_blank => true
+      validates :inn, :inn => true   
     end
 
     model Page < ActiveRecord::Base
@@ -29,6 +30,8 @@ Email, Slug, Url, Money
 ## Relise notes
 
 0.0.3 - Added Money validator
+
+0.0.3 - Add inn  validator. 
 
 ## Similar
 
