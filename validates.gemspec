@@ -5,8 +5,8 @@ require "validates/version"
 Gem::Specification.new do |s|
   s.name        = "validates"
   s.version     = Validates::VERSION
-  s.authors     = ["Mikhail Stolbov","Anton Taraev","Konstantin Kosmatov"]
-  s.email       = ["mstolbov@gmail.com","anti191@gmail.com","key@kosmatov.su"]
+  s.authors     = ["Mikhail Stolbov","Anton Taraev","Konstantin Kosmatov","Andrey Subbota"]
+  s.email       = ["mstolbov@gmail.com","anti191@gmail.com","key@kosmatov.su","subbota@gmail.com"]
   s.homepage    = "https://github.com/kaize/validates"
   s.summary     = "Collection of simple validators for Rails 3"
   s.description = "Email, Slug, Url, Money, INN validators for Rails 3"
