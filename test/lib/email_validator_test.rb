@@ -1,9 +1,6 @@
-require 'test/unit'
-require File.expand_path(File.dirname(__FILE__) + '/../lib/validates/email_regexp')
+require 'test_helper'
 
-class EmailRegexpTest < Test::Unit::TestCase
-  include EmailRegexp
-
+class EmailValidatorTest < Test::Unit::TestCase
   def test_valid
     valid_emails = [
       'user@example.com',
@@ -50,7 +47,7 @@ class EmailRegexpTest < Test::Unit::TestCase
     ]
 
     valid_emails.each do |email|
-      assert email_format_valid?(email), "#{email} not valid"
+      assert EmailValidator.valid?(email), "#{email} not valid"
     end
   end
 
@@ -101,7 +98,7 @@ class EmailRegexpTest < Test::Unit::TestCase
     ]
 
     invalid_emails.each do |email|
-      assert !email_format_valid?(email), "email #{email} valid"
+      assert !EmailValidator.valid?(email), "email #{email} valid"
     end
   end
 

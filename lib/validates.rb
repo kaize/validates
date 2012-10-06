@@ -1,7 +1,8 @@
-require "validates/version"
-require "validates/email_regexp"
-require "validates/email_validator"
-require "validates/slug_validator"
-require "validates/url_validator"
-require "validates/money_validator"
-require "validates/inn_validator"
+[:email, :inn, :money, :slug, :url].each do |name|
+  autoload :"#{name.capitalize}Validator", "#{name}_validator"
+end
+
+require 'active_model' # why i need do it?
+
+module Validates
+end

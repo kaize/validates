@@ -1,16 +1,24 @@
 # Validates
 
-## Summary
-
 Simple format validators for Rails 3
 
-## Installing
+## Installation
 
-Add this to your `Gemfile`:
+Add this line to your application's Gemfile:
 
-    gem "validates"
+    gem 'validates'
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install 'validates'
 
 ## Usage
+
+Availables validators: Email, Slug, Url, Money
 
     model User < ActiveRecord::Base
       validates :email, :email => true
@@ -22,20 +30,14 @@ Add this to your `Gemfile`:
       validates :slug, :slug => true
     end
 
+## Contributing
 
-## Availables validators
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
 
-Email, Slug, Url, Money
+run tests:
 
-## Relise notes
-
-0.0.3 - Added Money validator
-
-0.0.4 - Add inn  validator. 
-
-## Similar
-
-* http://github.com/balexand/email_validator
-* http://github.com/cesario/activevalidators
-* https://rubygems.org/gems/date_validator
-* and more...
+    turn -Itest test/lib
