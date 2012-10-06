@@ -5,3 +5,4 @@ gemspec
 
 gem 'minitest'
 gem 'turn'
+gem 'rake'
