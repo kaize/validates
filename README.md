@@ -1,6 +1,6 @@
 # Validates
 
-https://travis-ci.org/[kaize]/[validates].png
+[![Build Status](https://travis-ci.org/kaize/validates.png)](https://travis-ci.org/kaize/validates)
 
 Simple format validators for Rails 3
 
