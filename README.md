@@ -1,5 +1,7 @@
 # Validates
 
+https://travis-ci.org/[kaize]/[validates].png
+
 Simple format validators for Rails 3
 
 ## Installation
