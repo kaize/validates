@@ -24,6 +24,7 @@ Availables validators: Email, Slug, Url, Money
 
     model User < ActiveRecord::Base
       validates :email, :email => true
+      validates :roles, :existence => true
       validates :site, :url => true, :allow_blank => true
       validates :inn, :inn => true   
     end
