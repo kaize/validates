@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Availables validators: Email, Slug, Url, Money
+Availables validators: Email, Existence, Slug, Url, Money
 
     model User < ActiveRecord::Base
       validates :email, :email => true
