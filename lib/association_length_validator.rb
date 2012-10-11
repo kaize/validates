@@ -11,7 +11,7 @@ class AssociationLengthValidator < ActiveModel::Validations::LengthValidator
 
   def select_items(record, items, select_expr)
     case select_expr
-    when Symbol || String
+    when Symbol, String
       if record.respond_to?(select_expr)
         record.send(select_expr, items)
       else
