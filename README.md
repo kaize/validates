@@ -20,13 +20,30 @@ Or install it yourself as:
 
 ## Usage
 
-Availables validators: Email, Existence, Slug, Url, Money
+Availables validators: AssociationLength, Email, Existence, Slug, Url, Money
 
     model User < ActiveRecord::Base
       validates :email, :email => true
-      validates :roles, :existence => true
       validates :site, :url => true, :allow_blank => true
       validates :inn, :inn => true   
+    end
+
+    model Company < ActiveRecord::Base
+      # note AssociationLengthValidator is inherited from ActiveModel::Validations::LengthValidator
+      # http://api.rubyonrails.org/classes/ActiveModel/Validations/LengthValidator.html
+      # so you can easily use standard options like :is (:==), :minimum (:>=), :maximum (:<=)
+
+      validates :employees,
+        :association_length => {
+          :minimum => 1,
+          :select => ->(employee) { employee.name.in? ["Mike", "John"] }
+        }
+
+      validates :employees, :association_length => { :minimum => 1, :select => :employees_filter }
+
+      def employees_filter(employees)
+        employees.select { |employee| employee.name.in? ["Mike", "John"] }
+      end
     end
 
     model Page < ActiveRecord::Base
