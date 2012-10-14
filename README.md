@@ -22,13 +22,13 @@ Or install it yourself as:
 
 Availables validators: Email, Slug, Url, Money
 
-    model User < ActiveRecord::Base
+    class User < ActiveRecord::Base
       validates :email, :email => true
       validates :site, :url => true, :allow_blank => true
       validates :inn, :inn => true   
     end
 
-    model Page < ActiveRecord::Base
+    class Page < ActiveRecord::Base
       validates :slug, :slug => true
     end
 
