@@ -31,7 +31,7 @@ Availables validators: AssociationLength, Email, Existence, Slug, Url, Money
     model Company < ActiveRecord::Base
       # note AssociationLengthValidator is inherited from ActiveModel::Validations::LengthValidator
       # http://api.rubyonrails.org/classes/ActiveModel/Validations/LengthValidator.html
-      # so you can easily use standard options like :is (:==), :minimum (:>=), :maximum (:<=)
+      # so you can easily use standard options like :is, :minimum, :maximum, etc.
 
       validates :employees,
         :association_length => {
