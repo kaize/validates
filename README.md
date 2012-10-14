@@ -22,13 +22,13 @@ Or install it yourself as:
 
 Availables validators: AssociationLength, Email, Existence, Slug, Url, Money
 
-    model User < ActiveRecord::Base
+    class User < ActiveRecord::Base
       validates :email, :email => true
       validates :site, :url => true, :allow_blank => true
       validates :inn, :inn => true   
     end
 
-    model Company < ActiveRecord::Base
+    class Company < ActiveRecord::Base
       # note AssociationLengthValidator is inherited from ActiveModel::Validations::LengthValidator
       # http://api.rubyonrails.org/classes/ActiveModel/Validations/LengthValidator.html
       # so you can easily use standard options like :is, :minimum, :maximum, etc.
@@ -46,7 +46,7 @@ Availables validators: AssociationLength, Email, Existence, Slug, Url, Money
       end
     end
 
-    model Page < ActiveRecord::Base
+    class Page < ActiveRecord::Base
       validates :slug, :slug => true
     end
 
