@@ -1,4 +1,4 @@
-[:email, :inn, :money, :slug, :url].each do |name|
+[:email, :existence, :inn, :money, :slug, :url].each do |name|
   autoload :"#{name.capitalize}Validator", "#{name}_validator"
 end
 
