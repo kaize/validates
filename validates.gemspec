@@ -25,4 +25,8 @@ Gem::Specification.new do |s|
   # specify any dependencies here; for example:
   # s.add_development_dependency "rspec"
   s.add_runtime_dependency "activemodel", [">= 3.0.0"]
+
+  gem.add_development_dependency('rake')
+  gem.add_development_dependency('turn')
+  gem.add_development_dependency('minitest')
 end
