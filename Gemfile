@@ -1,8 +1,3 @@
-source "http://rubygems.org"
+source :rubygems
 
-# Specify your gem's dependencies in validates.gemspec
 gemspec
-
-gem 'minitest'
-gem 'turn'
-gem 'rake'

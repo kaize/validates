@@ -1,8 +1,13 @@
-# Validates
+# Validates [![Build Status](https://travis-ci.org/kaize/validates.png)](https://travis-ci.org/kaize/validates)
 
-[![Build Status](https://travis-ci.org/kaize/validates.png)](https://travis-ci.org/kaize/validates)
+Collection of useful custom validators for Rails 3 applications, including:
 
-Simple format validators for Rails 3
+- EmailValidator
+- UrlValidator
+- SlugValidator
+- MoneyValidator
+- InnValidator
+- AssociationLengthValidator
 
 ## Installation
 
@@ -10,17 +15,26 @@ Add this line to your application's Gemfile:
 
     gem 'validates'
 
-And then execute:
-
-    $ bundle
-
 Or install it yourself as:
 
     $ gem install 'validates'
 
 ## Usage
 
-Availables validators: AssociationLength, Email, Existence, Slug, Url, Money
+For most of the validators you just want to add this line to your model:
+
+    validates :attribute, <validator_underscore>: true
+
+where `<validator_underscore>` is an underscored, lowercase form from the validator's name (see the examples section below).
+
+### AssociationLengthValidator
+
+Because this is the successor of ActiveModel::Validations::LengthValidator
+validator, it inherits all the options of the latter, such as `:is`, `:minimum`,
+`:maximum`, etc. Another option, which you may be interested in is `:select` option,
+which allows you to filter the collection of the associated objects.
+
+## Examples
 
     class User < ActiveRecord::Base
       validates :email, :email => true
@@ -55,9 +69,6 @@ Availables validators: AssociationLength, Email, Existence, Slug, Url, Money
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
-
-run tests:
-
-    turn -Itest test/lib
+4. Test your changes by running `turn -Itest test/lib` command
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create new Pull Request
