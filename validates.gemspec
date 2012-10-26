@@ -19,14 +19,14 @@ Gem::Specification.new do |s|
 
   s.require_paths = ["lib"]
 
-  gem.rdoc_options      = %w(--line-numbers --inline-source --title validates --main README.md)
-  gem.extra_rdoc_files  = %w(README.md LICENSE)
+  s.rdoc_options      = %w(--line-numbers --inline-source --title validates --main README.md)
+  s.extra_rdoc_files  = %w(README.md LICENSE)
 
   # specify any dependencies here; for example:
   # s.add_development_dependency "rspec"
   s.add_runtime_dependency "activemodel", [">= 3.0.0"]
 
-  gem.add_development_dependency('rake')
-  gem.add_development_dependency('turn')
-  gem.add_development_dependency('minitest')
+  s.add_development_dependency('rake')
+  s.add_development_dependency('turn')
+  s.add_development_dependency('minitest')
 end
