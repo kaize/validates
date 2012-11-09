@@ -1,5 +1,5 @@
-[:email, :existence, :inn, :money, :slug, :url].each do |name|
-  autoload :"#{name.capitalize}Validator", "#{name}_validator"
+[:email, :association_length, :inn, :money, :slug, :url].each do |name|
+  autoload :"#{name.classify}Validator", "#{name}_validator"
 end
 
 require 'active_model' # why i need do it?
