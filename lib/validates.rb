@@ -1,11 +1,9 @@
-autoload :InnValidator, "inn_validator"
-autoload :UrlValidator, "url_validator"
-autoload :SlugValidator, "slug_validator"
-autoload :EmailValidator, "email_validator"
-autoload :MoneyValidator, "money_validator"
-autoload :AssociationLengthValidator, "association_length_validator"
+require 'active_support/core_ext/string/inflections'
+require 'active_model'
 
-require 'active_model' # why i need do it?
+[:email, :association_length, :inn, :money, :slug, :url].each do |name|
+  autoload :"#{name.to_s.classify}Validator", "#{name}_validator"
+end
 
 module Validates
 end
