@@ -20,7 +20,7 @@ class EmailValidator < ActiveModel::EachValidator
     LOCAL_ALLOWED_CHARS = '(?:[a-z0-9A-Z\!\#\$\%\&\'\*\-\/\=\?\+\-\^\_\`\{\|\}\~]|(?<!(?:^|\.))\.(?!$))'
 
     def valid?(value)
-      email_format_valid?(value)
+      email_format_valid?(value.to_s)
     end
 
     private
