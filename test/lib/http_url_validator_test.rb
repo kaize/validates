@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UrlValidatorTest < Test::Unit::TestCase
+class HttpUrlValidatorTest < Test::Unit::TestCase
  
   def test_valid
     valid_urls = [
@@ -12,13 +12,15 @@ class UrlValidatorTest < Test::Unit::TestCase
       'http://kaize/'
     ]
     valid_urls.each do |url|
-      assert UrlValidator.valid_url?(url)
+      assert HttpUrlValidator.valid_url?(url)
     end
   end
 
   def test_invalid
     invalid_urls = [
       'http://kaize.ru empty',
+      'www.google.com',
+      'ftp://start.com',
       ' ht tp :empty//kaize.ru',
       'ht tp::empty/ /kaize.ru empty',
       'ht tp:empty//kaize.ru empty',
@@ -31,7 +33,7 @@ class UrlValidatorTest < Test::Unit::TestCase
     ]
 
     invalid_urls.each do |url|
-      assert !UrlValidator.valid_url?(url)
+      assert !HttpUrlValidator.valid_url?(url)
     end
   end
 
