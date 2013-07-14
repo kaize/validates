@@ -3,7 +3,7 @@
 Collection of useful custom validators for Rails 3 applications, including:
 
 - EmailValidator
-- UrlValidator
+- HttpUrlValidator
 - SlugValidator
 - MoneyValidator
 - InnValidator
@@ -38,7 +38,7 @@ which allows you to filter the collection of the associated objects.
 
     class User < ActiveRecord::Base
       validates :email, :email => true
-      validates :site, :url => true, :allow_blank => true
+      validates :site, :http_url => true, :allow_blank => true
       validates :inn, :inn => true   
     end
 
