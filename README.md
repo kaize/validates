@@ -8,6 +8,7 @@ Collection of useful custom validators for Rails 3 applications, including:
 - MoneyValidator
 - InnValidator
 - AssociationLengthValidator
+- AbsolutePathValidator
 
 ## Installation
 
