@@ -9,6 +9,7 @@ Collection of useful custom validators for Rails 3 applications, including:
 - InnValidator
 - AssociationLengthValidator
 - AbsolutePathValidator
+- UriComponentValidator
 
 ## Installation
 
@@ -63,6 +64,10 @@ which allows you to filter the collection of the associated objects.
 
     class Page < ActiveRecord::Base
       validates :slug, :slug => true
+    end
+
+    class Content < ActiveRecord::Base
+      validates :path, :uri_component => { :component => :ABS_PATH }
     end
 
 ## Contributing
