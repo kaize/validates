@@ -67,6 +67,12 @@ which allows you to filter the collection of the associated objects.
     end
 
     class Content < ActiveRecord::Base
+      # Validates URI component.
+      # URI component must be of the following type:
+      # :ABS_URI, :REL_URI, :URI_REF, :ABS_URI_REF, :REL_URI_REF, :ESCAPED, :UNSAFE, :SCHEME,
+      # :USERINFO, :HOST, :PORT, :OPAQUE, :REGISTRY, :ABS_PATH, :REL_PATH, :QUERY or :FRAGMENT.
+      # These types are provided URI library. For more info see URI::DEFAULT_PARSER.regexp.
+
       validates :path, :uri_component => { :component => :ABS_PATH }
     end
 
