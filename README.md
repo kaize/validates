@@ -10,6 +10,7 @@ Collection of useful custom validators for Rails 3 applications, including:
 - AssociationLengthValidator
 - AbsolutePathValidator
 - UriComponentValidator
+- ColorValidator
 
 ## Installation
 
@@ -41,7 +42,7 @@ which allows you to filter the collection of the associated objects.
     class User < ActiveRecord::Base
       validates :email, :email => true
       validates :site, :url => true, :allow_blank => true
-      validates :inn, :inn => true   
+      validates :inn, :inn => true
     end
 
     class Company < ActiveRecord::Base
