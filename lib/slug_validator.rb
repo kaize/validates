@@ -3,5 +3,5 @@ class SlugValidator < ActiveModel::EachValidator
     unless value =~ /^[\w-]+$/i
       record.errors.add(attribute, :slug, options.merge(:value => value))
     end
-  end                  
+  end
 end
