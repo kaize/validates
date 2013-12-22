@@ -16,6 +16,7 @@ class ColorValidatorTest < Test::Unit::TestCase
       green
     )
 
+    Model.reset_callbacks(:validate)
     Model.validates :field, color: true
 
     valid_colors.each do |color|

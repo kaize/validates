@@ -5,6 +5,7 @@ Collection of useful custom validators for Rails 3 applications, including:
 - EmailValidator
 - UrlValidator
 - SlugValidator
+- BlankValidator
 - MoneyValidator
 - InnValidator
 - AssociationLengthValidator
