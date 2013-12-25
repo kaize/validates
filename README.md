@@ -85,3 +85,7 @@ which allows you to filter the collection of the associated objects.
 4. Test your changes by running `turn -Itest test/lib` command
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create new Pull Request
+
+### Important!
+
+Please, squash your commits before sending PR.
