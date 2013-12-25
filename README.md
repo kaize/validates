@@ -16,18 +16,22 @@ Collection of useful custom validators for Rails 3 applications, including:
 
 Add this line to your application's Gemfile:
 
-    gem 'validates'
+``` ruby
+gem 'validates'
+```
 
 Or install it yourself as:
 
-    $ gem install 'validates'
+``` bash
+$ gem install 'validates'
+```
 
 ## Usage
 
 For most of the validators you just want to add this line to your model:
-
-    validates :attribute, <validator_underscore>: true
-
+``` ruby
+validates :attribute, <validator_underscore>: true
+```
 where `<validator_underscore>` is an underscored, lowercase form from the validator's name (see the examples section below).
 
 ### AssociationLengthValidator
@@ -39,43 +43,46 @@ which allows you to filter the collection of the associated objects.
 
 ## Examples
 
-    class User < ActiveRecord::Base
-      validates :email, :email => true
-      validates :site, :url => true, :allow_blank => true
-      validates :inn, :inn => true
-    end
+``` ruby
+class User < ActiveRecord::Base
+  validates :email, :email => true
+  validates :site, :url => true, :allow_blank => true
+  validates :inn, :inn => true
+end
 
-    class Company < ActiveRecord::Base
-      # note AssociationLengthValidator is inherited from ActiveModel::Validations::LengthValidator
-      # http://api.rubyonrails.org/classes/ActiveModel/Validations/LengthValidator.html
-      # so you can easily use standard options like :is, :minimum, :maximum, etc.
+class Company < ActiveRecord::Base
+  # note AssociationLengthValidator is inherited from ActiveModel::Validations::LengthValidator
+  # http://api.rubyonrails.org/classes/ActiveModel/Validations/LengthValidator.html
+  # so you can easily use standard options like :is, :minimum, :maximum, etc.
 
-      validates :employees,
-        :association_length => {
-          :minimum => 1,
-          :select => ->(employee) { employee.name.in? ["Mike", "John"] }
-        }
+  validates :employees,
+  :association_length => {
+    :minimum => 1,
+    :select => ->(employee) { employee.name.in? ["Mike", "John"] }
+  }
 
-      validates :employees, :association_length => { :minimum => 1, :select => :employees_filter }
+  validates :employees, :association_length => { :minimum => 1, :select => :employees_filter }
 
-      def employees_filter(employees)
-        employees.select { |employee| employee.name.in? ["Mike", "John"] }
-      end
-    end
+  def employees_filter(employees)
+    employees.select { |employee| employee.name.in? ["Mike", "John"] }
+  end
+end
 
-    class Page < ActiveRecord::Base
-      validates :slug, :slug => true
-    end
+class Page < ActiveRecord::Base
+  validates :slug, :slug => true
+end
 
-    class Content < ActiveRecord::Base
-      # Validates URI component.
-      # URI component must be of the following type:
-      # :ABS_URI, :REL_URI, :URI_REF, :ABS_URI_REF, :REL_URI_REF, :ESCAPED, :UNSAFE, :SCHEME,
-      # :USERINFO, :HOST, :PORT, :OPAQUE, :REGISTRY, :ABS_PATH, :REL_PATH, :QUERY or :FRAGMENT.
-      # These types are provided URI library. For more info see URI::DEFAULT_PARSER.regexp.
+class Content < ActiveRecord::Base
+  # Validates URI component.
+  # URI component must be of the following type:
+  # :ABS_URI, :REL_URI, :URI_REF, :ABS_URI_REF, :REL_URI_REF, :ESCAPED, :UNSAFE, :SCHEME,
+  # :USERINFO, :HOST, :PORT, :OPAQUE, :REGISTRY, :ABS_PATH, :REL_PATH, :QUERY or :FRAGMENT.
+  # These types are provided URI library. For more info see URI::DEFAULT_PARSER.regexp.
 
-      validates :path, :uri_component => { :component => :ABS_PATH }
-    end
+  validates :path, :uri_component => { :component => :ABS_PATH }
+end
+
+```
 
 ## Contributing
 
