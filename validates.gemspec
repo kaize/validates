@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Mikhail Stolbov","Anton Taraev","Konstantin Kosmatov","Andrey Subbota"]
   s.email       = ["mstolbov@gmail.com","anti191@gmail.com","key@kosmatov.su","subbota@gmail.com"]
   s.homepage    = "http://github.com/kaize/validates"
-  s.summary     = %q{Collection of useful custom validators for Rails 3 applications}
-  s.description = %q{validates provides a set of commonly required validators (such as Email, Url, etc.) for Rails 3 applications}
+  s.summary     = %q{Collection of useful custom validators for Rails applications}
+  s.description = %q{validates provides a set of commonly required validators (such as Email, Url, etc.) for Rails applications}
 
   s.rubyforge_project = "validates"
 
@@ -22,8 +22,6 @@ Gem::Specification.new do |s|
   s.rdoc_options      = %w(--line-numbers --inline-source --title validates --main README.md)
   s.extra_rdoc_files  = %w(README.md LICENSE)
 
-  # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
   s.add_dependency "activemodel", [">= 3.0.0"]
   s.add_dependency "activesupport", [">= 3.0.0"]
 end

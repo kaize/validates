@@ -1,6 +1,6 @@
 # Validates [![Build Status](https://travis-ci.org/kaize/validates.png)](https://travis-ci.org/kaize/validates)
 
-Collection of useful custom validators for Rails 3 applications, including:
+Collection of useful custom validators for Rails applications, including:
 
 - EmailValidator
 - UrlValidator
