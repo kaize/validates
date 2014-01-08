@@ -7,6 +7,7 @@ Collection of useful custom validators for Rails applications, including:
 - SlugValidator
 - MoneyValidator
 - InnValidator
+- IpValidator
 - AssociationLengthValidator
 - AbsolutePathValidator
 - UriComponentValidator
