@@ -1,7 +1,7 @@
 class UriComponentValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     unless value =~ URI::DEFAULT_PARSER.regexp[component]
-      record.errors.add(attribute, :uri_component, options.merge(:value => value))
+      record.errors.add(attribute, :uri_component, options.merge(value: value))
     end
   end
 

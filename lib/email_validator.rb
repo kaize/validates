@@ -2,7 +2,7 @@ class EmailValidator < ActiveModel::EachValidator
 
   def validate_each(record, attribute, value)
     unless self.class.valid?(value)
-      record.errors.add(attribute, :email, options.merge(:value => value))
+      record.errors.add(attribute, :email, options.merge(value: value))
     end
   end
 

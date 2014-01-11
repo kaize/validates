@@ -1,7 +1,7 @@
 class ColorValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     unless value =~ /^[#]([a-f0-9]{3}|[a-f0-9]{6})$/ || COLORS.include?(value)
-      record.errors.add(attribute, :color, options.merge(:value => value))
+      record.errors.add(attribute, :color, options.merge(value: value))
     end
   end
 
