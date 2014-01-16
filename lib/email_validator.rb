@@ -1,76 +1,50 @@
 class EmailValidator < ActiveModel::EachValidator
-
   def validate_each(record, attribute, value)
-    unless self.class.valid?(value)
+    unless valid?(value)
       record.errors.add(attribute, :email, options.merge(value: value))
     end
   end
 
-  class << self
-    MAX_EMAIL_LENGTH = 254
+  MAX_EMAIL_LENGTH = 254
+  MAX_DOMAIN_LENGTH = 255
+  MAX_DOMAIN_PART_LENGTH = 64
+  MAX_USER_LENGTH = 64
+  LOCAL_ALLOWED_CHARS = '(?:[a-z0-9A-Z\!\#\$\%\&\'\*\-\/\=\?\+\-\^\_\`\{\|\}\~]|(?<!(?:^|\.))\.(?!$))'
 
-    # Maximum domain length
-    MAX_DOMAIN_LENGTH = 255
-    MAX_DOMAIN_PART_LENGTH = 64
+  private_constant :MAX_EMAIL_LENGTH, :MAX_DOMAIN_LENGTH, :MAX_DOMAIN_PART_LENGTH, :MAX_USER_LENGTH, :LOCAL_ALLOWED_CHARS
 
-    # Maximum user length
-    MAX_USER_LENGTH = 64
+  private
 
-    # User allowed chars
-    LOCAL_ALLOWED_CHARS = '(?:[a-z0-9A-Z\!\#\$\%\&\'\*\-\/\=\?\+\-\^\_\`\{\|\}\~]|(?<!(?:^|\.))\.(?!$))'
+  def valid?(value)
+    email_format_valid?(value.to_s)
+  end
 
-    def valid?(value)
-      email_format_valid?(value.to_s)
-    end
+  def email_format_valid?(email)
+    domain, local = email.reverse.split('@', 2)
 
-    private
+    return false if domain.blank? || local.blank?
+    return false if email.length > MAX_EMAIL_LENGTH
+    return false if domain.length > MAX_DOMAIN_LENGTH || local.length > MAX_USER_LENGTH
+    return false if !email_domain_syntax_valid?(domain) || !email_local_syntax_valid?(local)
 
-    # Validate email format
-    # @params [String] email
-    # @return [true,false,nil]
-    def email_format_valid?(email)
+    true
+  end
 
-      domain, local= email.reverse.split('@', 2)
+  def email_domain_syntax_valid?(domain)
+    parts = domain.reverse.downcase.gsub(/(?:^\[(.+)\]$)/,'\1').split('.', -1)
 
-      return if email.length > MAX_EMAIL_LENGTH
+    return false unless parts.all? { |part| part =~ /^(?!\-)[[:alnum:]\-]+(?<!\-)$/ && part.length < MAX_DOMAIN_PART_LENGTH }
+    return true if parts.length == 4 && parts.all? { |part| part =~ /\A[0-9]+\Z/ && part.to_i.between?(0, 255) }
+    return false if parts[-1] =~ /^\d+$/
 
-      return if domain.nil? or local.nil? or domain.empty? or local.empty?
+    true
+  end
 
-      domain.reverse!
-      local.reverse!
+  def email_local_syntax_valid?(local)
+    email_local_syntax_regexp =~ local.reverse
+  end
 
-      return if domain.length > MAX_DOMAIN_LENGTH or local.length > MAX_USER_LENGTH
-
-      return unless email_domain_syntax_valid?(domain) and email_local_syntax_valid?(local)
-
-      true
-    end
-
-    # Validate emails domain syntax
-    # @params [String] domain
-    # @return [true, false]
-    def email_domain_syntax_valid?(domain)
-      parts = domain.downcase.gsub(/(?:^\[(.+)\]$)/,'\1').split('.', -1)
-
-      return false unless parts.all? { |part| part =~ /^(?!\-)[[:alnum:]\-]+(?<!\-)$/ && part.length < MAX_DOMAIN_PART_LENGTH}
-
-      return true if parts.length == 4 and parts.all? { |part| part =~ /\A[0-9]+\Z/ and part.to_i.between?(0, 255) }
-
-      return false if parts[-1] =~ /^\d+$/
-
-      true
-    end
-
-    # Validate emails locale syntax
-    def email_local_syntax_valid?(local)
-      return if not email_local_syntax_regexp =~ local
-      true
-    end
-
-    # Return emails local part syntax regexp
-    # @return [Regexp]
-    def email_local_syntax_regexp
-      Regexp.new("^(?:\"(?:[\\\\]?#{LOCAL_ALLOWED_CHARS}|\\\\[\"\\s\\\\]|[@])*\"|#{LOCAL_ALLOWED_CHARS}*)$")
-    end
+  def email_local_syntax_regexp
+    Regexp.new("^(?:\"(?:[\\\\]?#{LOCAL_ALLOWED_CHARS}|\\\\[\"\\s\\\\]|[@])*\"|#{LOCAL_ALLOWED_CHARS}*)$")
   end
 end

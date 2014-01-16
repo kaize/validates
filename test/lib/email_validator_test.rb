@@ -46,8 +46,14 @@ class EmailValidatorTest < Test::Unit::TestCase
       'test@xn--example.com'
     ]
 
+    Model.reset_callbacks(:validate)
+    Model.validates :field, email: true
+
     valid_emails.each do |email|
-      assert EmailValidator.valid?(email), "#{email} not valid"
+      model = Model.new
+      model.field = email
+
+      assert model.valid?, "#{email} not valid"
     end
   end
 
@@ -97,9 +103,14 @@ class EmailValidatorTest < Test::Unit::TestCase
       'first(middle)last@iana.org'
     ]
 
+    Model.reset_callbacks(:validate)
+    Model.validates :field, email: true
+
     invalid_emails.each do |email|
-      assert !EmailValidator.valid?(email), "email #{email} valid"
+      model = Model.new
+      model.field = email
+
+      refute model.valid?, "#{email} not valid"
     end
   end
-
 end
