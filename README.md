@@ -1,4 +1,4 @@
-# Validates [![Build Status](https://travis-ci.org/kaize/validates.png)](https://travis-ci.org/kaize/validates)
+# Validates [![Gem Version](https://badge.fury.io/rb/validates.png)](http://badge.fury.io/rb/validates) [![Build Status](https://travis-ci.org/kaize/validates.png)](https://travis-ci.org/kaize/validates)
 
 Collection of useful custom validators for Rails applications, including:
 
