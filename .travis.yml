@@ -5,6 +5,10 @@ rvm:
   - 2.1.0
   - rbx
   - jruby
+gemfile:
+  - Gemfile
+  - gemfiles/Gemfile.activemodel-3.0
+  - gemfiles/Gemfile.activemodel-4.0
 matrix:
   allow_failures:
     - rvm: rbx
