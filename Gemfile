@@ -3,5 +3,8 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'rake'
-gem 'turn'
-gem 'minitest'
+
+group :test do
+  gem 'minitest', '~> 4.5.0'
+  gem 'turn'
+end
