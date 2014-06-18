@@ -88,3 +88,15 @@ end
 ## Contributing
 
 Please see CONTRIBUTING.md for details.
+
+## Credits
+
+Originally written by Mikhail Stolbov. Maintained by kaize.
+
+Thank you to all our amazing [contributors](http://github.com/kaize/validates/contributors)!
+
+## License
+
+validates is Copyright © 2012-2014 Mikhail Stolbov and kaize. It is free
+software, and may be redistributed under the terms specified in the LICENSE
+file.
