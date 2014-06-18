@@ -87,7 +87,7 @@ end
 
 ## Contributing
 
-Please see CONTRIBUTING.md for details.
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## Credits
 
