@@ -1,6 +1,7 @@
 require 'test_helper'
 
-class ColorValidatorTest < Test::Unit::TestCase
+class ColorValidatorTest < ValidatorTest
+
   def test_valid
     valid_colors = %w(
       #fff

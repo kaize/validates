@@ -1,9 +1,6 @@
 require 'test_helper'
 
-class UriComponentValidatorTest < Test::Unit::TestCase
-  def teardown
-    Model.reset_callbacks(:validate)
-  end
+class UriComponentValidatorTest < ValidatorTest
 
   def test_valid
     Model.validates :field, uri_component: { component: :ABS_PATH }
@@ -25,7 +22,7 @@ class UriComponentValidatorTest < Test::Unit::TestCase
   end
 
   def test_check_arguments
-    assert_raise(ArgumentError) do
+    assert_raises(ArgumentError) do
       Model.validates :field, uri_component: { component: :WRONG }
     end
   end

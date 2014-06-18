@@ -1,6 +1,7 @@
 require 'test_helper'
 
-class EmailValidatorTest < Test::Unit::TestCase
+class EmailValidatorTest < ValidatorTest
+
   def test_valid
     valid_emails = [
       'user@example.com',
@@ -46,7 +47,6 @@ class EmailValidatorTest < Test::Unit::TestCase
       'test@xn--example.com'
     ]
 
-    Model.reset_callbacks(:validate)
     Model.validates :field, email: true
 
     valid_emails.each do |email|
@@ -103,7 +103,6 @@ class EmailValidatorTest < Test::Unit::TestCase
       'first(middle)last@iana.org'
     ]
 
-    Model.reset_callbacks(:validate)
     Model.validates :field, email: true
 
     invalid_emails.each do |email|

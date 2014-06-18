@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class IpValidatorTest < Test::Unit::TestCase
+class IpValidatorTest < ValidatorTest
   def test_valid
     valid_ips = %w(
       21.189.63.11
@@ -9,7 +9,6 @@ class IpValidatorTest < Test::Unit::TestCase
       FE80:0000:0000:0000:0202:B3FF:FE1E:8329
     )
 
-    Model.reset_callbacks(:validate)
     Model.validates :field, ip: true
 
     valid_ips.each do |ip|
@@ -28,7 +27,6 @@ class IpValidatorTest < Test::Unit::TestCase
       127.0.0.1.0
     )
 
-    Model.reset_callbacks(:validate)
     Model.validates :field, ip: true
 
     invalid_ips.each do |ip|

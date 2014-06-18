@@ -1,9 +1,6 @@
 require 'test_helper'
 
-class UrlValidatorTest < Test::Unit::TestCase
-  def teardown
-    Model.reset_callbacks(:validate)
-  end
+class UrlValidatorTest < ValidatorTest
 
   def test_valid
     valid_urls = %w{

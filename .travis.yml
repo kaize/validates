@@ -13,4 +13,3 @@ matrix:
   allow_failures:
     - rvm: rbx
     - rvm: jruby
-script: "bundle exec turn -Itest test/lib"

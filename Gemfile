@@ -5,6 +5,5 @@ gemspec
 gem 'rake'
 
 group :test do
-  gem 'minitest', '~> 4.5.0'
-  gem 'turn'
+  gem 'minitest', '~> 5'
 end

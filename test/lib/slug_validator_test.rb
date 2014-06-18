@@ -1,6 +1,7 @@
 require 'test_helper'
 
-class SlugValidatorTest < Test::Unit::TestCase
+class SlugValidatorTest < ValidatorTest
+
   def test_valid
     valid_slugs = %w(
       home
@@ -9,7 +10,6 @@ class SlugValidatorTest < Test::Unit::TestCase
       new-2014-year
     )
 
-    Model.reset_callbacks(:validate)
     Model.validates :field, slug: true
 
     valid_slugs.each do |slug|
@@ -29,7 +29,6 @@ class SlugValidatorTest < Test::Unit::TestCase
       hello?
     )
 
-    Model.reset_callbacks(:validate)
     Model.validates :field, slug: true
 
     invalid_slugs.each do |slug|

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AbsolutePathValidatorTest < Test::Unit::TestCase
+class AbsolutePathValidatorTest < Minitest::Test
   def test_valid
     valid_path = '/some/path'
 
