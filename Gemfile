@@ -6,4 +6,5 @@ gem 'rake'
 
 group :test do
   gem 'minitest', '~> 5'
+  gem 'minitest-reporters'
 end
