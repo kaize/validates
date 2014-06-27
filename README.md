@@ -11,6 +11,7 @@ Collection of useful custom validators for Rails applications, including:
 - AbsolutePathValidator
 - UriComponentValidator
 - ColorValidator
+- EanValidator ([EAN-8 & EAN-13](http://en.wikipedia.org/wiki/International_Article_Number_(EAN))
 
 **Note** InnValidator and other Russian specific validators could be found at [validates_russian](https://github.com/asiniy/validates_russian) gem
 
