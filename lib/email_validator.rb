@@ -33,6 +33,7 @@ class EmailValidator < ActiveModel::EachValidator
   def email_domain_syntax_valid?(domain)
     parts = domain.reverse.downcase.gsub(/(?:^\[(.+)\]$)/,'\1').split('.', -1)
 
+    return false if parts.size == 1 && options[:reject_one_level_domain]
     return false unless parts.all? { |part| part =~ /^(?!\-)[[:alnum:]\-]+(?<!\-)$/ && part.length < MAX_DOMAIN_PART_LENGTH }
     return true if parts.length == 4 && parts.all? { |part| part =~ /\A[0-9]+\Z/ && part.to_i.between?(0, 255) }
     return false if parts[-1] =~ /^\d+$/

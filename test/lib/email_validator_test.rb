@@ -57,6 +57,33 @@ class EmailValidatorTest < ValidatorTest
     end
   end
 
+  def test_reject_one_level_domain
+
+    valid_emails = [
+      'u@example.com',
+    ]
+
+    invalid_emails = [
+      'u@example',
+    ]
+
+    Model.validates :field, email: { reject_one_level_domain: true }
+
+    valid_emails.each do |email|
+      model = Model.new
+      model.field = email
+
+      assert model.valid?, "#{email} not valid"
+    end
+
+    invalid_emails.each do |email|
+      model = Model.new
+      model.field = email
+
+      refute model.valid?, "#{email} not valid"
+    end
+  end
+
   def test_invalid
     invalid_emails = [
       '',
