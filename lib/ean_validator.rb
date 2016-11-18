@@ -13,18 +13,16 @@ class EanValidator < ActiveModel::EachValidator
   def valid?(ean)
     return false if ean.blank?
     return false unless ean =~ /^\d+$/
-    return false unless [8, 13].include?(ean.length)
+    return false unless (8..13).include?(ean.length)
     return false unless calc_check_digit(ean)
 
     true
   end
 
   def calc_check_digit(ean)
-    coefficient_table = (ean.length == 8) ? EAN_CHECK_DIGIT8 : EAN_CHECK_DIGIT13
-    ean.split(//).each_with_index.inject(0){ |s, (v, i)| s + v.to_i * coefficient_table[i] } % 10 == 0
+    ean.rjust(13, "0".freeze).each_char.map.with_index { |char, i| char.to_i * EAN_CHECK_DIGIT13[i] }.reduce(:+) % 10 == 0
   end
 
-  EAN_CHECK_DIGIT8 = [3, 1, 3, 1, 3, 1, 3, 1]
   EAN_CHECK_DIGIT13 = [1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1]
-  private_constant :EAN_CHECK_DIGIT8, :EAN_CHECK_DIGIT13
+  private_constant :EAN_CHECK_DIGIT13
 end
