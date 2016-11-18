@@ -8,6 +8,7 @@ Fork, then clone the repo:
 
 Make sure the tests pass:
 
+    bundle install
     rake
 
 Make your change. Add tests for your change. Make the tests pass:
