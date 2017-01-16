@@ -41,8 +41,20 @@ where `<validator_underscore>` is an underscored, lowercase form from the valida
 
 Because this is the successor of ActiveModel::Validations::LengthValidator
 validator, it inherits all the options of the latter, such as `:is`, `:minimum`,
-`:maximum`, etc. Another option, which you may be interested in is `:select` option,
+`:maximum`, etc.
+Another feature is the ability to send lambda or symbol as value, like this:
+``` ruby
+  validates :field, association_length: { maximum: -> (record) { record.max } }
+  validates :field2, association_length: { maximum: -> { 3 } }
+  validates :field3, association_length: { maximum: :max }
+```
+
+Yet another option, which you may be interested in is `:select` option,
 which allows you to filter the collection of the associated objects.
+
+``` ruby
+  validates :employees, :association_length => { :minimum => 1, :select => :employees_filter }
+```
 
 ## Examples
 
