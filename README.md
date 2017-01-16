@@ -5,6 +5,7 @@ Collection of useful custom validators for Rails applications, including:
 - AbsolutePathValidator
 - AssociationLengthValidator
 - ColorValidator
+- PersistenceValidator
 - EanValidator ([EAN-8 & EAN-13](http://en.wikipedia.org/wiki/International_Article_Number_(EAN)))
 - EmailValidator
 - IpValidator

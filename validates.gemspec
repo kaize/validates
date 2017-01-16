@@ -22,6 +22,6 @@ Gem::Specification.new do |s|
   s.rdoc_options      = %w(--line-numbers --inline-source --title validates --main README.md)
   s.extra_rdoc_files  = %w(README.md LICENSE CONTRIBUTING.md CHANGELOG.md)
 
-  s.add_dependency "activemodel", [">= 3.0.0"]
-  s.add_dependency "activesupport", [">= 3.0.0"]
+  s.add_dependency "activemodel", [">= 4.2.0"]
+  s.add_dependency "activesupport", [">= 4.2.0"]
 end
